@@ -9,5 +9,10 @@
         text-xs font-bold
         transition-all duration-100 scale-0 origin-left;
     }
+
+    .loginbtn {
+        @apply  w-20  border-2 border-gray-400 xl:border-white px-3 py-2 rounded-2xl text-base 
+        font-medium hover:bg-slate-200 hover:scale-105
+    }
     
 }

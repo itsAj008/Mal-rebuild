@@ -8,7 +8,9 @@ import { SiAcademia } from "react-icons/si";
 import { LuSettings } from "react-icons/lu";
 import { Link, NavLink } from "react-router-dom";
 import ThemeBtn from "./Themebtn";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import LoginPage from "../Pages/Login/LoginPage";
+import SignupPage from "../Pages/Signup/SignupPage";
 
 
 const SidebarIcon = ({icon , text,link="/#",className =""}) => (
@@ -33,16 +35,30 @@ const SidebarIcon = ({icon , text,link="/#",className =""}) => (
 
 
 
-
 export default function Navbar() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
 
+  const openLogin = () => {
+    setShowSignup(false);
+    setShowLogin(true);
+  };
+
+  const closePopUp = () => {
+    setShowLogin(false);
+    setShowSignup(false);
+  };
+  const openSignup = () => {
+    setShowLogin(false);
+    setShowSignup(true);
+  };
 
   return (
     <>
      <div className="w-auto xl:w-full xl:flex xl:justify-between ">
-        <ul className=" bg-slate-300  w-20 h-screen flex flex-col gap-12 items-center xl:flex-row xl:h-20 xl:w-full dark:bg-gray-500 dark:xl:text-white " >
+        <ul className=" bg-slate-300  w-20 h-screen flex flex-col gap-10 items-center xl:flex-row xl:h-20 xl:w-full dark:bg-gray-500 dark:xl:text-white " >
             <li>
-              <div className="hover:scale-105 xl:ml-5">
+              <div className="hover:scale-105 xl:ml-8">
                 <Link to="/main" >
                   <SiMyanimelist className="text-7xl hover:text-slate-700  dark:text-white xl:text-black" />
                 </Link>
@@ -56,8 +72,13 @@ export default function Navbar() {
             
 
             <li className="hidden xl:block">
-            <ThemeBtn className="top-1 left-20"/>
+               <ThemeBtn className="top-1 left-20"/>
             </li>
+            <li className="hidden xl:block ml-40">
+               <button onClick={openLogin} className="loginbtn">Login</button>
+               <button onClick={openSignup}  className="loginbtn ml-5">signup</button>
+            </li>
+           
         </ul>
         <div className=" fixed  right-3 bottom-16 scale-100 xl:scale-0 ">
           <ThemeBtn className="top-1 left-20 " cls="scale-0"/>
@@ -68,9 +89,20 @@ export default function Navbar() {
         </div>
     </div>
     
-    <div className="fixed  top-5 right-10 xl:hidden">
+    <div className="flex fixed gap-2 items-center top-5 right-10 xl:hidden">
+    <div className="block xl:hidden ">
+               <button onClick={openLogin} className="loginbtn dark:text-white">Login</button>
+               <button onClick={openSignup}  className="loginbtn  dark:text-white ml-2 ">signup</button>
+          </div>
         <Avatar className="w-10 rounded-full" />
+     
     </div>
+
+    
+        <div>
+          {showLogin && <LoginPage closePopup={closePopUp} openSignup={openSignup}/>}
+          {showSignup && <SignupPage closePopup={closePopUp} openLogin={openLogin}/>}
+        </div>
 
     </>
    
