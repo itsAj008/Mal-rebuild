@@ -1,9 +1,8 @@
-import Mainpage from "./Pages/page"
-
+import Mainpage from "./Pages/mainPage/MainPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-
+  
   return (
     <>
      <Router>
