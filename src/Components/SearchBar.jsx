@@ -29,7 +29,7 @@ const handleSubmit = (e) => {
         <>
             <div className={`flex gap-1  ${props.className}`}>
                 <input 
-                className=' w-80 p-2 pl-1 border-2 rounded-md border-gray-300'
+                className=' w-48 sm:w-80 p-2 pl-1 border-2 rounded-md border-gray-300'
                 type="text" value={input}  onChange={(e) => {setInput(e.target.value)}} />
                 <button className=' w-20 bg-green-500 p-2 text-white border-2 rounded-md' onClick={handleSubmit}>add</button>
                 

@@ -43,7 +43,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-auto xl:w-full xl:flex xl:justify-between ">
+      <div className=" fixed w-auto xl:w-full xl:flex xl:justify-between  ">
           <ul className=" bg-slate-300  w-20 h-screen flex flex-col gap-8 items-center xl:flex-row xl:h-20 xl:w-full dark:bg-slate-500 dark:xl:text-white " >
               <li>
                 <div className="hover:scale-105 xl:ml-8">
@@ -59,14 +59,13 @@ export default function Navbar() {
               <SidebarIcon icon={<LuSettings />} text={"Settings"} className={"mt-auto xl:m-0 mb-5"}/>
               
           </ul>
-
       </div>
       
-      <div className="flex fixed gap-5 items-center top-5 right-5 ">
-              <ThemeBtn className=" right-8 xl:right-16 " />
+      <div className="flex fixed sm:gap-5 items-center top-5 right-5  ">
+              <ThemeBtn className=" right-5 xl:right-16 " />
               <div className="flex">
                 <button onClick={openLogin} className="loginbtn dark:text-white">Login</button>
-                <button onClick={openSignup}  className="loginbtn  dark:text-white ml-2 ">signup</button>
+                <button onClick={openSignup}  className="loginbtn  dark:text-white ml-2 mr-1">signup</button>
               </div>
               <Avatar className="w-10 rounded-full" />
       </div>

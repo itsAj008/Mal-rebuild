@@ -17,8 +17,8 @@ const WatchList = () => {
 
     return(
         <div>
-            <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400'>Watch-List 📃:</h2>
-            <div className="  bg-slate-400 w-[400px] min-w-60 min-h-8 h-fit p-2 rounded-lg ">
+            <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400 '>Watch-List 📃:</h2>
+            <div className="  bg-slate-400  w-72 sm:w-[400px] sm:min-w-60 min-h-8 h-fit max-h-72 p-2 rounded-lg overflow-y-scroll ">
                 {watchList.map((item) => (
                 <div key={item.id}
                      className=" bg-slate-300 p-2 pl-3 rounded-lg m-2 flex gap-3 items-center text-base font-fantasy">

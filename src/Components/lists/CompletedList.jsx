@@ -28,13 +28,13 @@ const CompletedList = () => {
     return(
         <div>
             <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400'>Completed ✅: </h2>
-            <div className=" relative bg-slate-400 w-[400px] min-w-60 min-h-8 h-fit p-2 rounded-lg">
+            <div className=" relative bg-slate-400 w-72 sm:w-[400px] sm:min-w-60 min-h-8 h-fit max-h-72 p-2 rounded-lg  overflow-y-scroll">
              {completedList.map((item) => (
                <div key={item.id}
-                    className=" group bg-slate-300 p-2 pl-5 rounded-lg m-2 flex gap-3 items-center text-base font-fantasy">
+                    className=" group bg-slate-300 p-2 pl-5 rounded-lg m-2 flex gap-3 items-center text-base font-fantasy overflow-x-auto">
                   {item.text}
                   <FiMoreVertical  className=" group ml-auto text-gray-800 size-6 cursor-pointer" />
-                  <div className='absolute flex gap-2 justify-center items-center left-[380px] rounded-xl bg-slate-200 w-16 h-10
+                  <div className='absolute flex gap-2 justify-center items-center left-3/4 rounded-xl bg-slate-200 w-16 h-10
                                           shadow-lg  dark:bg-slate-300 
                                           shadow-black-600/50 dark:shadow-slate-400/50 
                                           scale-0 peer group-hover:scale-100'>
