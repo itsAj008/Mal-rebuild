@@ -15,6 +15,9 @@ export default {
         },
       },
     },
+    fontFamily: {
+      fantasy: ['Comic Sans MS', 'cursive'], // Example fantasy font family
+    },
   },
   plugins: [],
 }

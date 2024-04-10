@@ -3,6 +3,7 @@ import SearchBar from "../../Components/SearchBar";
 import WatchList from "../../Components/lists/WatchList"
 import CompletedList from "../../Components/lists/CompletedList";
 
+
 import { useSelector } from 'react-redux'
 
 export default function Mainpage() { 

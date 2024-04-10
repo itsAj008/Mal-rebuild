@@ -13,13 +13,15 @@ const WatchList = () => {
         dispatch(removeWatchlist(item.id))
     }
 
+
+
     return(
         <div>
-            <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400'>Watch-List :</h2>
-            <div className="  bg-slate-400 w-[400px] min-w-60 min-h-8 h-fit p-2 rounded-lg">
+            <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400'>Watch-List 📃:</h2>
+            <div className="  bg-slate-400 w-[400px] min-w-60 min-h-8 h-fit p-2 rounded-lg ">
                 {watchList.map((item) => (
                 <div key={item.id}
-                     className=" bg-slate-300 p-2 pl-3 rounded-lg m-2 flex gap-3 items-center text-lg ">
+                     className=" bg-slate-300 p-2 pl-3 rounded-lg m-2 flex gap-3 items-center text-base font-fantasy">
 
                     <input type="checkbox" className=" size-4" onClick={() => handleComplete(item)}/>
                     {item.text}
