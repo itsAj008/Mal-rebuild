@@ -23,7 +23,6 @@ export default function ThemeBtn(props) {
  useEffect(() =>{
     document.querySelector("html").classList.remove("light","dark");
     document.querySelector("html").classList.add(themeMode)
-
  },[themeMode])
 
     return (
