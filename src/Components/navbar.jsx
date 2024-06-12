@@ -44,18 +44,18 @@ export default function Navbar() {
   return (
     <>
       <div className=" fixed w-auto xl:w-full xl:flex xl:justify-between  ">
-          <ul className=" bg-slate-300  w-20 h-screen flex flex-col gap-8 items-center xl:flex-row xl:h-20 xl:w-full dark:bg-slate-500 dark:xl:text-white " >
+          <ul className=" bg-slate-300  lg:w-20 h-screen flex flex-col gap-8 items-center xl:flex-row xl:h-20 xl:w-full dark:bg-slate-500 dark:xl:text-white " >
               <li>
                 <div className="hover:scale-105 xl:ml-8">
-                  <Link to="/main" >
-                    <SiMyanimelist className="text-7xl hover:text-slate-700  dark:text-white xl:text-black" />
+                  <Link to="/" >
+                    <SiMyanimelist className="text-6xl lg:text-7xl hover:text-slate-700  dark:text-white xl:text-black" />
                   </Link>
                 </div>
               </li>
-              <SidebarIcon icon={<AiFillHome size="34"/>} text={"Home"} />
-              <SidebarIcon icon={<SiAcademia />} text={"Anime"} />
-              <SidebarIcon icon={<BsFillBookFill />} text={"Manga"} />
-              <SidebarIcon icon={<SiAboutdotme size="34"/>} text={"About"} />
+              <SidebarIcon icon={<AiFillHome />} text={"Home"} link={'/'} />
+              <SidebarIcon icon={<SiAcademia />} text={"Anime"} link = {"/Anime" } />
+              <SidebarIcon icon={<BsFillBookFill />} text={"Manga"} link={'/manga'}/>
+              <SidebarIcon icon={<SiAboutdotme/>} text={"About"} link={'/about'}/>
               <SidebarIcon icon={<LuSettings />} text={"Settings"} className={"mt-auto xl:m-0 mb-5"}/>
               
           </ul>

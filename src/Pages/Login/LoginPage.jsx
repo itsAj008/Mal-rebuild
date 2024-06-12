@@ -10,30 +10,30 @@ function LoginPage({ closePopup, openSignup, setShowSPopup,setShowFPopup}) {
       password:"",
     })
 
-    const loginUser = async(e) => {
-      e.preventDefault()
-      console.log(user.name)
-      console.log(user.email)
-      console.log(user.password)
+    // const loginUser = async(e) => {
+    //   e.preventDefault()
+    //   console.log(user.name)
+    //   console.log(user.email)
+    //   console.log(user.password)
 
-      const promise = authSerivce.login({
-        email: user.email,
-        password: user.password,
-      });
+    //   const promise = authSerivce.login({
+    //     email: user.email,
+    //     password: user.password,
+    //   });
 
-      promise.then((response)=>{
-          console.log(response)
-          closePopup()
-          setShowSPopup(true)
-        },
-          (error) => {
-            console.log(error)
-            closePopup()
-            setShowFPopup(true)
-          }
-      )
+    //   promise.then((response)=>{
+    //       console.log(response)
+    //       closePopup()
+    //       setShowSPopup(true)
+    //     },
+    //       (error) => {
+    //         console.log(error)
+    //         closePopup()
+    //         setShowFPopup(true)
+    //       }
+    //   )
       
-    };
+    // };
     
 
 
@@ -58,7 +58,7 @@ function LoginPage({ closePopup, openSignup, setShowSPopup,setShowFPopup}) {
                            w-fit  h-fit px-5  rounded-xl bg-slate-200 shadow-lg  dark:bg-slate-300  shadow-black-600/50
                            dark:shadow-slate-400/50  "  >
             <button onClick={closePopup} className='self-end mt-2 mb-2 text-sm border-1 px-1 font-semibold'>Close</button>
-            <form onSubmit={loginUser} className='flex flex-col gap-3 p-5 w-96 '>
+            <form className='flex flex-col gap-3 p-5 w-96 '>
                 <h2 className='text-center mb-3 font-bold text-2xl'>Login</h2>
                 <input type="email" placeholder="Email"
                    className=' border-2 rounded-md  p-1 pl-2' 

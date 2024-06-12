@@ -2,11 +2,7 @@ import {createSlice,nanoid} from '@reduxjs/toolkit';
 
 
 const initialState = {
-    watchList:[{
-        id:1,
-        text:"Black clover",
-        completed: false
-    }]
+    watchList:[]
 }
 
 export const watchListSlice = createSlice({
@@ -14,11 +10,15 @@ export const watchListSlice = createSlice({
     initialState,
     reducers : {
         addWatchlist:(state,action) => {
+            console.log('added')
             const anime = {
-                id:nanoid(),
-                text:action.payload,
-                completed:false
+                id : action.payload.myanimelist_id || nanoid(),
+                title : action.payload.title,
+                picture_url : action.payload.picture_url || " ",
+                myanimelist_url : action.payload.myanimelist_url,
+                completed : false
             }
+         
             state.watchList.push(anime)
         },
         removeWatchlist:(state, action) =>{
@@ -28,7 +28,7 @@ export const watchListSlice = createSlice({
         },
         updateWatchlist: (state, action) => {
             state.watchList = state.watchList.map((anime) => (
-                (anime.id === action.payload.id) ? { ...anime, text: action.payload.text } : anime
+                (anime.id === action.payload.id) ? { ...anime, title: action.payload.title } : anime
             ));
         },
 

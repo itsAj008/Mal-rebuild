@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeWatchlist } from '../../features/todo/watchListSlice'
 import { addCompleted } from '../../features/todo/completedListSlice';
 import { AiFillDelete } from "react-icons/ai";
+import { IoIosMore } from "react-icons/io";
+
+import { Link } from 'react-router-dom';
 
 const WatchList = () => {
 
@@ -17,18 +20,27 @@ const WatchList = () => {
 
     return(
         <div>
-            <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400 '>Watch-List 📃:</h2>
-            <div className="  bg-slate-400  w-72 sm:w-[400px] sm:min-w-60 min-h-8 h-fit max-h-72 p-2 rounded-lg overflow-y-scroll ">
-                {watchList.map((item) => (
+           
+            <div className="  bg-slate-400 py-2 flex flex-col h-fit max-h-96 w-[70%] xl:w-[50%]  overflow-y-scroll rounded-md">
+                {watchList.map((item,i) => {
+                    console.log(item)
+                    return (
                 <div key={item.id}
-                     className=" bg-slate-300 p-2 pl-3 rounded-lg m-2 flex gap-3 items-center text-base font-fantasy">
+                     className=" bg-slate-300 w-full  h-20 flex border border-gray-400 gap-5  items-center  py-1 px-2">
+                    <span>{i+1}</span>
+          
+                    <img className= " h-full  " src={item.picture_url} alt={item.title} />
+                    <Link to={item.myanimelist_url} className=' text-blue-500 ml-3 t-sm truncate block max-w-full'>{item.title}</Link>
 
-                    <input type="checkbox" className=" size-4" onClick={() => handleComplete(item)}/>
-                    {item.text}
-                    <AiFillDelete className=" ml-auto text-red-500 mr-1 size-6" onClick={() => dispatch(removeWatchlist(item.id))}/>
+                    {/* <IoIosMore /> */}
+                    <div className=' ml-auto mr-1  flex opacity-100 items-center gap-2'>
+                        <input type="checkbox" className=" size-4" onClick={() => handleComplete(item)}/>
+                        <AiFillDelete className="  text-red-500 size-6" onClick={() => dispatch(removeWatchlist(item.id))}/>
+                    </div>
+                    
                   
                 </div>
-                ))}
+                )})}
             </div> 
 
         </div>

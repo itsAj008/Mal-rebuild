@@ -1,16 +1,19 @@
-import Mainpage from "./Pages/mainPage/MainPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import { Outlet } from "react-router-dom";
+import Navbar from "./Components/navbar";
+
 
 function App() {
   
   return (
     <>
-     <Router>
-        <Routes>
-          <Route exact path="/" element={<Mainpage />} />
-        </Routes>
-      </Router>
-      
+    <div className="min-h-screen flex flex-col">
+      <div className="w-full h-screen  bg-slate-100 dark:bg-gray-700 min-h-screen flex flex-col " > 
+        <Navbar /> 
+        <Outlet />
+       
+      </div>
+    </div>
     </>
   )
 }

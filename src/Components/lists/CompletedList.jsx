@@ -6,6 +6,7 @@ import { MdOutlineWatchLater } from "react-icons/md";
 import { HiMiniListBullet } from "react-icons/hi2";
 import { useState } from 'react';
 import { addWatchlist } from '../../features/todo/watchListSlice';
+import { Link } from 'react-router-dom';
 
 
 
@@ -14,8 +15,9 @@ const CompletedList = () => {
   const completedList = useSelector((state) => state.completedList.completedList)
   const dispatch = useDispatch()
 
+
   const handleMove = (item) => {
-    dispatch(addWatchlist(item.text))
+    dispatch(addWatchlist(item))
     dispatch(removeCompleted(item.id))
     
   }
@@ -26,26 +28,37 @@ const CompletedList = () => {
   }
 
     return(
-        <div>
-            <h2 className='text-gray-700 dark:text-gray-300 ml-3 mb-5 w-fit border-b-2 border-gray-400'>Completed ✅: </h2>
-            <div className=" relative bg-slate-400 w-72 sm:w-[400px] sm:min-w-60 min-h-8 h-fit max-h-72 p-2 rounded-lg  overflow-y-scroll">
-             {completedList.map((item) => (
-               <div key={item.id}
-                    className=" group bg-slate-300 p-2 pl-5 rounded-lg m-2 flex gap-3 items-center text-base font-fantasy overflow-x-auto">
-                  {item.text}
-                  <FiMoreVertical  className=" group ml-auto text-gray-800 size-6 cursor-pointer" />
-                  <div className='absolute flex gap-2 justify-center items-center left-3/4 rounded-xl bg-slate-200 w-16 h-10
-                                          shadow-lg  dark:bg-slate-300 
-                                          shadow-black-600/50 dark:shadow-slate-400/50 
-                                          scale-0 peer group-hover:scale-100'>
-                              <HiMiniListBullet  className='text-green-600 size-5 cursor-pointer hover:scale-105' onClick={() => handleMove(item)} />
-                              <AiFillDelete className=' text-red-500 size-5 cursor-pointer  hover:scale-105'  onClick={() => handleDelete(item)} />
-                  </div>
-               </div>
-             ))}
-          </div> 
+      <div> 
+           
+        <div className="  bg-slate-400  w-[70%] xl:w-[50%] py-2 flex flex-col h-fit max-h-96 overflow-y-scroll min-h-24  rounded-md ">
+            {completedList.map((item,i) => {
+                console.log(item)
+                return (
+                <div key={item.id}
+                    className=" bg-slate-300 w-full h-20 flex border border-gray-400 gap-5  items-center  py-1 px-2">
+                    <span>{i+1}</span>
+            
+                    <img className= " h-full  " src={item.picture_url} alt={item.title} />
+                    <Link to={item.myanimelist_url} className=' text-blue-500 ml-3 cursor-pointer'>{item.title}</Link>
+            
+                    
+                      <div 
+                              className=' flex gap-2 justify-center items-center  ml-auto rounded-xl bg-slate-200 w-16 h-10 shadow-lg  dark:bg-slate-300  shadow-black-600/50 dark:shadow-slate-400/50  cursor-pointer'
+                            >
+            
+                            <HiMiniListBullet  className='text-green-600 size-6 cursor-pointer hover:scale-95 ' onClick={() => handleMove(item)} />
+                            <AiFillDelete className=' text-red-500 size-6 cursor-pointer  hover:scale-95'  onClick={() => handleDelete(item)} />
+                    </div>
+                    
+                  
+                </div>
+                )})}
+        </div> 
+      
+      </div>
 
-        </div>
+
+
       
       
     )
@@ -53,3 +66,6 @@ const CompletedList = () => {
   
 
 export default CompletedList;
+
+
+
