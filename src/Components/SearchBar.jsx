@@ -11,7 +11,7 @@ const serachRef = useRef()
 const dispatch = useDispatch();
 
 const fetchAnime = async(name) => {
-    const res = await fetch(`http://dummyjson.com/users/search?q=${name}`)
+    const res = await fetch(`https://dummyjson.com/users/search?q=${name}`)
     const data = await res.json()
     setAnimeSearchResult(data.users)
     console.log(data.users)
@@ -26,9 +26,7 @@ useEffect(() => {
         }else {
             setAnimeSearchResult('')
         }
-       
- 
-    },1000)
+    },300)
 
     return () => {
         clearTimeout(timerId)
@@ -54,7 +52,7 @@ useEffect(()=>{
 
 const handleFocus = async() => {
     if(input.trim().length === 0){
-        const res = await fetch('http://dummyjson.com/users')
+        const res = await fetch('https://dummyjson.com/users')
         const data = await res.json()
         setAnimeSearchResult(data.users)
         console.log(data.users)
@@ -62,11 +60,18 @@ const handleFocus = async() => {
 }
 
 
-// const handleSubmit = (e) => {
-//     e.preventDefault();
-//     dispatch(addWatchlist(input))
-//     setInput(" ")
-// }
+
+const handleAdd = (e,anime) => {
+    e.preventDefault();
+    const data = {
+        myanimelist_id : anime.id ,
+        title : anime.firstName + anime.lastName ,
+        picture_url : anime.image,
+        myanimelist_url : '',
+    }
+    dispatch(addWatchlist(data))
+    setInput(" ")
+}
 
     return (
         <div className=''>
@@ -80,7 +85,7 @@ const handleFocus = async() => {
                     {/* <button className=' w-20 bg-green-500 p-2 text-white border-2 rounded-md' onClick={handleSubmit}>add</button> */}
                 </div>
                
-                 <div  className={`absolute flex flex-col gap-2 top-14 z-10 max-h-56 overflow-y-scroll bg-slate-200 w-72 sm:w-80 rounded-md py-1 transition-all duration-700 ease-in-out ${animeSearchResult.length > 0 ? ' opacity-100' : 'opacity-0'}`}  ref={serachRef}>
+                 <div  className={`absolute flex flex-col gap-2 top-14 z-10 max-h-56 overflow-y-scroll bg-slate-200 w-72 sm:w-80 rounded-md py-1 transition-all duration-500 ease-in-out ${animeSearchResult.length > 0 ? ' opacity-100' : 'opacity-0'}`}  ref={serachRef}>
 
                     {animeSearchResult.length>0 && animeSearchResult.map((anime) => (
                         <div  
@@ -89,7 +94,7 @@ const handleFocus = async() => {
                         > 
                             <img  className=' h-10' src={anime.image} alt="" />
                             <Link to="#">{anime.firstName}{ anime.lastName}</Link>
-                            <button className=' bg-blue-400 py-1 px-2 rounded-md text-xs text-white ml-auto mr-2'>add</button>
+                            <button className=' bg-blue-400 py-1 px-2 rounded-md text-xs text-white ml-auto mr-2 ' onClick={() => handleAdd(anime)}>add</button>
                         </div>
                     ))}
                    
