@@ -45,11 +45,21 @@ function Anime() {
         <div 
             className=" w-[70%] xl:w-[60%]  h-[80%] ml-10 bg-slate-300 grid gap-4 xl:gap-6 rounded-md p-1 pr-2 md:p-4   md:px-5  grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 overflow-y-scroll mt-4 " >
 
-            {!!Adata.length > 0 ? Adata.slice(page*9 - 9, page*9).map((data) => (
+            {!!Adata.length > 0 ?
+             Adata.slice(page*9 - 9, page*9).map((data) => (
                 <AnimeCard key={data.myanimelist_id} data = {data} />
             )
-            ) : 
-            <span className=" text-gray-500 text-xl text-center">Loading <span className="animate-blink">...</span></span>}
+            ) 
+            : 
+            
+                <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col gap-3 items-center ">
+                    <div className=" animate-loading h-20 w-20 rounded-full border-2 border-t-2 border-t-blue-600 " />
+                    
+                    <span className=" text-gray-500 text-xl text-center">Loading <span className="animate-blink">...</span></span>
+                </div>
+
+            }
+          
             
         </div>
         <div className=" flex justify-center  items-end pt-2">

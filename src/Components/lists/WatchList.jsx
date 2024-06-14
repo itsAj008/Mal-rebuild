@@ -23,7 +23,6 @@ const WatchList = () => {
            
             <div className="  bg-slate-400 py-2 flex flex-col h-fit max-h-96 w-[70%] xl:w-[50%]  overflow-y-scroll rounded-md">
                 {watchList.map((item,i) => {
-                    console.log(item)
                     return (
                 <div key={item.id}
                      className=" bg-slate-300 w-full  h-20 flex border border-gray-400 gap-5  items-center  py-1 px-2">

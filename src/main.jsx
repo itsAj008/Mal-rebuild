@@ -23,10 +23,10 @@ const router = createBrowserRouter([
         path:'/',
         element:<Mainpage />
       },
-      // {
-      //   path:'Anime',
-      //   element:<Anime />
-      // },
+      {
+        path:'Anime',
+        element:<Anime />
+      },
       {
         path:'manga',
         element:<Manga />
