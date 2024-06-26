@@ -53,10 +53,10 @@ export default function Navbar() {
                 </div>
               </li>
               <SidebarIcon icon={<AiFillHome />} text={"Home"} link={'/'} />
-              <SidebarIcon icon={<SiAcademia />} text={"Anime"} link = {"/Anime" } />
+              <SidebarIcon icon={<SiAcademia />} text={"Anime"} link = {"/anime" } />
               <SidebarIcon icon={<BsFillBookFill />} text={"Manga"} link={'/manga'}/>
               <SidebarIcon icon={<SiAboutdotme/>} text={"About"} link={'/about'}/>
-              <SidebarIcon icon={<LuSettings />} text={"Settings"} className={"mt-auto xl:m-0 mb-5"}/>
+              <SidebarIcon icon={<LuSettings />} text={"Settings"} link={'/settings'} className={"mt-auto xl:m-0 mb-5"}/>
               
           </ul>
       </div>

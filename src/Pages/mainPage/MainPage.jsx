@@ -21,7 +21,7 @@ return (
     
         {/* <SearchBar className=""/>  */}
         {/* <div className="flex-grow flex justify-center"> */}
-          <div className=" fixed w-full h-full top-40  left-[23%] xl:left-[15%]  flex flex-col gap-10 ">
+          <div className=" fixed w-full h-full top-32  left-[23%] xl:left-[15%]  flex flex-col gap-5 overflow-y-scroll ">
            <SearchBar className=""/> 
             <div className=" flex gap-5 sm:gap-12">
               <span 
